@@ -1,11 +1,33 @@
-# MacOS ZSH Commands Cheat Sheet
+# **MacOS ZSH Commands Cheat Sheet**
 *Depends on oh-my-zsh and some plugins*
+
+## Table of contents
+
+
+- [**MacOS ZSH Commands Cheat Sheet**](#macos-zsh-commands-cheat-sheet)
+    - [Table of contents](#table-of-contents)
+- [**Shell**](#shell)
+    - [Miscellaneous commands](#miscellaneous-commands)
+    - [Standard Aliases](#standard-aliases)
+    - [osx plugin](#osx-plugin)
+    - [common-alises plugin](#common-alises-plugin)
+    - [vi-mode plugin](#vi-mode-plugin)
+        - [History](#history)
+        - [Mode indicators](#mode-indicators)
+        - [Vim edition](#vim-edition)
+        - [Movement](#movement)
+        - [Insertion](#insertion)
+        - [Delete and Insert](#delete-and-insert)
+- [Stuff to add later](#stuff-to-add-later)
+
+# **Shell** 
 
 ## Miscellaneous commands
 
 Command | Description |
 ---|---|
 tree | Show a graphical tree of current dir
+tldr | To Lazy Didn't Read man replacement
 
 ## Standard Aliases
 
@@ -75,6 +97,7 @@ P|	2>&1| pygmentize -l pytb
 Use ESC or CTRL-[ to enter Normal mode.
 
 ### History
+
 Command | Description|
 ---|---|
 ctrl-p | Previous command in history
@@ -137,3 +160,34 @@ r{char} | Replace the character under the cursor with {char}
 R | Enter replace mode: Each character replaces existing one
 x | Delete [count] characters under and after the cursor
 X | Delete [count] characters before the cursor
+
+xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+# Stuff to add later
+SYSTEMD
+
+	Show service status
+		systemctl status <service name>			
+	enable service
+		sudo systemctl daemon-reload
+		sudo systemctl enable myscript.service
+
+BATCH CONVERT IMAGES
+
+	mogrify -format pdf *.*
+
+JOBS
+
+	CTRL Z		suspend job
+	jobs 		list jobs
+	fb 			bring last job to forground
+	bg 			make last job active
+	disown 		sleppir takinu á jobbum, svo þau keyri áfram eftir logout
+	disown -h [job-spec] 
+				finna job-spec með jobs
+
+
+ADD SSH KEY TO SSH-AGENT (FROM GITHUB.COM)
+
+	ssh-keygen -t rsa -b 4096 -C "your_email@example.com"
+	eval "$(ssh-agent -s)"
+	ssh-add -K ~/.ssh/id_rsa

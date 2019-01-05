@@ -1,8 +1,8 @@
-# A setup guide for an extrea smooth terminal experience on MacOS - 2018.08 
-### Info
+# A setup guide for an extra smooth terminal experience on MacOS - 2018.08 
+## Info
 Installed on Drungi MacOS 10.13.16 in august 2018
 	
-### With tips and tricks partly taken from :
+## With tips and tricks partly taken from :
 
 [Oh-My-Zsh! A Work of CLI Magic — Tutorial for Ubuntu ](https://medium.com/wearetheledger/oh-my-zsh-made-for-cli-lovers-installation-guide-3131ca5491fb)
 
@@ -94,4 +94,25 @@ Symlink .mackup and .mackup.cfg to ~/Dropbox/Mackup versions
 Restore settings from Mackup (add -n for a dry run)
 	
 	mackup restore
+
+### OSXFuse and SSHFS 
+
+For mounting remote file systems over SSH
+
+#### Installation:
+
+	brew cask install osxfuse
+	brew install sshfs
+	
+#### Using:
+
+SSH-ing to your server:
+	
+	sudo sshfs -o allow_other,defer_permissions,IdentityFile=~/.ssh/id_rsa user@host:/remotefolder/ /localfolder
+
+or for short:
+
+	sshfs user@host:/remoteFolder /localFolder
+
+	
 
