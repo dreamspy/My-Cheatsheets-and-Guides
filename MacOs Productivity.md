@@ -21,7 +21,58 @@
 - [Stuff to add later](#stuff-to-add-later)
 
 # **Shell** 
+## iTerm2 shell integration
 
+Command | Description |
+---|---|
+imgcat filename| Displays the image inline.
+imgls | Shows a directory listing with image thumbnails
+it2attention start\stop\fireworks | Gets your attention
+it2check | Checks if the terminal is iTerm2
+it2copy [filename] |  Copies to the pasteboard
+it2dl filename|  Downloads the specified file, saving it in your Downloads folder.
+it2setcolor ...|  Changes individual color settings or loads a color preset
+it2setkeylabel ...|  Changes Touch Bar function key labels
+it2ul|  Uploads a file
+it2universion|  Sets the current unicode version
+imgcat [imagefile]| Display image inline
+imgls | List images in directory with thumbnails
+it2attention start|  Begin bouncing the dock icon if another app is active
+it2attention stop|  Stop bouncing the dock icon if another app is active
+it2attention fireworks|  Show an explosion animation at the cursor
+it2copy|Copies text to the pasteboard. Works over ssh. Accepts either standard input or a named file.
+it2dl|The it2dl program downloads files. This is useful when you are ssh'ed to a remote host. The downloaded files are placed in your Downloads folder.
+it2ul|Uploads a file. Works over ssh.
+it2universion|Sets the unicode version for the current session.
+
+**it2universion usage**
+	
+	it2universion set 8
+	it2universion set 9
+	it2universion push [name]
+	 Saves the current version with an optional name.
+it2universion pop [name]
+     If name is given, all versions up to and including the one with the matching name are popped.
+
+
+
+
+
+
+
+
+Feature | Description
+---|---
+Marks|You can navigate marks with Cmd-Shift-Up and Down-arrow keys.
+Alert on next mark | ⌘⌥A To alert after current command finish
+See command error code | Right click > Comman info
+Download file | Right click > Download
+Command history | ⌘⬆;
+ | Auto complete command:⌘;
+Dir history | ⌘⇧/
+
+  
+  
 ## Miscellaneous commands
 
 Command | Description |
