@@ -51,13 +51,35 @@ source devel/setup.bash
 `apt search ros-melodic` | Search available packages    
 `rosnode list` | List the nodes in currently running `roscore` server
 `rosnode info <node_name>`|Show info about ROS node
-`rosrun turtlesim turtlesim_node`| Clean up lost processes (Nodes)
+`rosrun turtlesim turtlsim_node`| Clean up lost processes (Nodes)
 `rosrun [package_name] [node_name]`| Run a ROS node, f.x. `rosrun turtlesim turtlesim_node`
 `roscore` | Run a ROS server
+`rosrun rqt_graph rqt_graph` | Display topics in a graph
+`rostpic`| Get information about ROS **topics**
+`rostopic list -v` | Display a verbose list of topics
+`rostopic echo <topic>`| Listen to a topic stream
+`rostopic type <topic>`| Show type of topic
+`rosmsg show <topic type>` | Description of type
+`rosmsg show <topic>` | Description of the type of a given topic
+`rostopic pub [topic] [msg_type] [args]` | Publish a message to a topic
+`rostopic pub -l [topic] [msg_type] [args]` | Send one message
+`rostopic pub [topic] [msg_type] -r 1 [args]` | Send a repeated message at 1Hz
+`rostopic hz [topic]` | Display the rate at which data is published
+`rostopic type <topic> | rosmsg show`| Get type information about a topic
+`rosrun rqt_plot rqt_plot`|Live plot of topics
+`rosservice list` | List of all services
+`rosservice type <service>` | Shows service argument type
+`rosservice type <service> | rossrv show` | Show service type info
+`rosservice call <service> <argument>` | Send a message to a service
+`rosparam <command>` | set, get, load, dump, delete and list parameters
+`rosparam list` | List all parameters
+`rosparam get /`| Get all parameters on the parm server
+
+
 
 # Miscellaneous stuff
 
-## `catkin`
+## catkin
 
 Catkin is the official build system of ROS and the successor to the original ROS build system, rosbuild. catkin combines CMake macros and Python scripts to provide some functionality on top of CMake's normal workflow. 
 
@@ -89,3 +111,15 @@ A node really isn't much more than an executable file within a ROS package. ROS 
 - **Master**: Name service for ROS (i.e. helps nodes find each other)
 - **rosout**: ROS equivalent of stdout/stderr
 - **roscore**: Master + rosout + parameter server (parameter server will be introduced later)
+
+# Topics
+
+The `rostopic` tool allows you to get information about ROS **topics**
+
+# Services
+
+Services are another way that nodes can communicate with each other. Services allow nodes to send a request and receive a response.
+
+# Parameters
+
+A parameter server is a shared, multi-variate dictionary that is accessible via network APIs. Nodes use this server to store and retrieve parameters at runtime. As it is not designed for high-performance, it is best used for static, non-binary data such as configuration parameters. It is meant to be globally viewable so that tools can easily inspect the configuration state of the system and modify if necessary.
