@@ -83,6 +83,10 @@ Install patched fonts from here
 
 Set fonts in iTerm2 and Terminal	
 
+Fix vi-mode prompt by adding this to .zshrc:
+
+	[[ ( -f ~/.oh-my-zsh/custom/prompt/viModeCursor.sh ) ]] && source ~/.oh-my-zsh/custom/prompt/viModeCursor.sh
+
 ### Mackup
 
 Mackup is backing up these guys:
