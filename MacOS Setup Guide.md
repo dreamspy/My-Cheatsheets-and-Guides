@@ -83,7 +83,32 @@ Install patched fonts from here
 
 Set fonts in iTerm2 and Terminal	
 
-Fix vi-mode prompt by adding this to .zshrc:
+#### Fix vi-mode prompt
+Create the file `~/.oh-my-zsh/custom/prompt/viModeCursor.sh` with these contents
+
+```
+function zle-keymap-select zle-line-init
+{
+    # change cursor shape in iTerm2
+    case $KEYMAP in
+        vicmd)      print -n -- "\E]50;CursorShape=0\C-G";;  # block cursor
+        viins|main) print -n -- "\E]50;CursorShape=1\C-G";;  # line cursor
+    esac
+
+    zle reset-prompt
+    zle -R
+}
+
+function zle-line-finish
+{
+    print -n -- "\E]50;CursorShape=0\C-G"  # block cursor
+}
+
+zle -N zle-line-init
+zle -N zle-line-finish
+zle -N zle-keymap-select
+```
+and add this to .zshrc
 
 	[[ ( -f ~/.oh-my-zsh/custom/prompt/viModeCursor.sh ) ]] && source ~/.oh-my-zsh/custom/prompt/viModeCursor.sh
 
