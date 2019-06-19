@@ -1,5 +1,5 @@
 # Learning ROS
-*An epic journey about a young boy named Frimann who want's to build a robot.*
+*An epic journey about a young boy named Frimann who want`s to build a robot.*
 
 The journey begun on the 6th of may, 2019.
 
@@ -17,15 +17,15 @@ Packages are a collection of ROS code, like ROS nodes, datasets, libraries etc.
 
 ### catkin buildsystem
 
-Catkin is the official build system of ROS and the successor to the original ROS build system, rosbuild. catkin combines CMake macros and Python scripts to provide some functionality on top of CMake's normal workflow. 
+Catkin is the official build system of ROS and the successor to the original ROS build system, rosbuild. catkin combines CMake macros and Python scripts to provide some functionality on top of CMake`s normal workflow. 
 
 What is a Build System?
-A build system is responsible for generating 'targets' from raw source code that can be used by an end user. These targets may be in the form of libraries, executable programs, generated scripts, exported interfaces (e.g. C++ header files) or anything else that is not static code. In ROS terminology, source code is organized into 'packages' where each package typically consists of one or more targets when built.
+A build system is responsible for generating `targets` from raw source code that can be used by an end user. These targets may be in the form of libraries, executable programs, generated scripts, exported interfaces (e.g. C++ header files) or anything else that is not static code. In ROS terminology, source code is organized into `packages` where each package typically consists of one or more targets when built.
 
-The catkin_make command is a convenience tool for working with catkin workspaces. Running it the first time in your workspace, it will create a CMakeLists.txt link in your 'src' folder. Additionally, if you look in your current directory you should now have a 'build' and 'devel' folder. Inside the 'devel' folder you can see that there are now several setup.*sh files. Sourcing any of these files will overlay this workspace on top of your environment. To understand more about this see the general catkin documentation: catkin. 
+The catkin_make command is a convenience tool for working with catkin workspaces. Running it the first time in your workspace, it will create a CMakeLists.txt link in your `src` folder. Additionally, if you look in your current directory you should now have a `build` and `devel` folder. Inside the `devel` folder you can see that there are now several setup.*sh files. Sourcing any of these files will overlay this workspace on top of your environment. To understand more about this see the general catkin documentation: catkin. 
 
 ### Building Packages with catkin
-catkin packages can be built using the standard cmake workflow, i.e. invoke 'cmake <path/to/source space>', 'make', and then 'make install' all from the build space directory. 
+catkin packages can be built using the standard cmake workflow, i.e. invoke `cmake <path/to/source space>`, `make`, and then `make install` all from the build space directory. 
 
 ### Package status
 http://repositories.ros.org/status_page/ros_melodic_default.html
@@ -41,7 +41,7 @@ http://repositories.ros.org/status_page/ros_melodic_default.html
 - **roscore**: Master + rosout + parameter server (parameter server will be introduced later)
 
 ## Nodes
-A node really isn't much more than an executable file within a ROS package. ROS nodes use a ROS client library to communicate with other nodes. Nodes can publish or subscribe to a Topic. Nodes can also provide or use a Service.
+A node really isn`t much more than an executable file within a ROS package. ROS nodes use a ROS client library to communicate with other nodes. Nodes can publish or subscribe to a Topic. Nodes can also provide or use a Service.
 
 - roscore = ros+core : master (provides name service for ROS) + rosout (stdout/stderr) + parameter server (parameter server will be introduced later)
 - rosnode = ros+node : ROS tool to get information about a node.
@@ -50,6 +50,8 @@ A node really isn't much more than an executable file within a ROS package. ROS 
 
 
 ## Topics
+
+Topics are named buses over which nodes exchange messages. Topics have anonymous publish/subscribe semantics, which decouples the production of information from its consumption. In general, nodes are not aware of who they are communicating with. Instead, nodes that are interested in data subscribe to the relevant topic; nodes that generate data publish to the relevant topic. There can be multiple publishers and subscribers to a topic.
 
 The `rostopic` tool allows you to get information about ROS **topics**
 
@@ -105,8 +107,12 @@ source devel/setup.bash
  rosrun rqt_logger_level rqt_logger_level
 ```
 
-For viewing the graph use `rqt` or `rqt_graph
+For viewing the graph use `rqt` or `rqt_graph`
 
+### Setup Catkin tools
+See directions here: https://catkin-tools.readthedocs.io/en/latest/quick_start.html
+
+Remember to run `catkin build` and source `env.zsh`.
 
 ### Launching ROS scripts
 For launching pre-made routines, a set of nodes within namespaces etc, use the **roslaunch** command
@@ -154,5 +160,57 @@ roslaunch [package] [filename.launch]
 `rosparam list` | List all parameters
 `rosparam get /`| Get all parameters on the parm server
 `rosed [package_name] [filename]` | Directly edit a file within a package
+`rospack = ros+pack(age)`| provides information related to ROS packages
+`roscd = ros+cd`| changes directory to a ROS package or stack
+`rosls = ros+ls`| lists files in a ROS package
+`roscp = ros+cp`| copies files from/to a ROS package
+`rosmsg = ros+msg`|  provides information related to ROS message definitions
+`rossrv = ros+srv`| provides information related to ROS service definitions
+`catkin_make`| makes (compiles) a ROS package
+
+
+# Info regarding EA1000 ROS WS
+
+Uses `catkin tools`, not `catkin make`. 
+
+All the packages are set to depend on ROS' `rospy` package. That means that all the packages are configured to autogenerate Python code. If we were using C++ we would instead use `roscpp` which is for C++.
+
+The next step to configure each package is to edit the `setup.py` and `CMakeLists.txt` files in each package. `setup.py` tells ROS where your Python import path is located.
+
+## Folder structure within the EA1000 ROS Workspace
+Moves to Confluence https://dtequipment.atlassian.net/wiki/spaces/EA1/pages/3866629/EA1000+Code+Documentation
+```
+├── docs 
+├── env.sh
+├── env.zsh
+├── LICENSE.md
+├── README.md
+└── src
+    ├── <device_type>
+    │   ├── CMakeLists.txt
+    │   ├── package.xml
+    │   ├── setup.py
+    │   └── src
+    │       ├── <device_type>_node.py
+    │       └── <device_type>_pkg
+    │           ├── <device>
+    │           │   ├── <device>>
+    │           │   │   ├── <device>.py
+    │           │   │   ├── helpers.py
+    │           │   │   └── __init__.py
+    │           │   ├── __init__.py
+    │           │   ├── LICENSE.md
+    │           │   ├── README.md
+    │           │   └── tests
+    │           │       ├── <device>
+    │           │       │   └── test_<device>.py
+    │           │       └── __init__.py
+    │           └── __init__.py
+    └── <other ROS package>
+        ├── CMakeLists.txt
+        └── package.xml
+```
+
+
 
 
