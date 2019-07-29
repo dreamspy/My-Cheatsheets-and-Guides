@@ -3,6 +3,8 @@
 
 The journey begun on the 6th of may, 2019.
 
+# NOTE THIS GUIDE IS OBSOLETE AND HAS MOVED TO DTEs CONFLUENCE PAGE
+
 # ROS can be broken down to:
 - Packages
     - contain notes and other data
