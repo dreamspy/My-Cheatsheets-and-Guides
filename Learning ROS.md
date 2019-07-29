@@ -120,6 +120,21 @@ For launching pre-made routines, a set of nodes within namespaces etc, use the *
 ```
 roslaunch [package] [filename.launch]
 ```
+### Send message
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 # Collection of commands
 |Command|Explanation|
