@@ -43,4 +43,17 @@
 | Ctrl + F10 | Clipboard indicator clear history
 | Ctrl + F11 | Clipboard indicator previous entry
 | Ctrl + F12 | Clipboard indicator next entry
- 
+
+## TMUX
+
+|Shortcut|Description|
+|---|---|
+|  | **Copy workflow** 
+| ctrl + B  | Enter comman mode
+| [ | Enter copy mode
+| space | start selection
+| vim-style | select text vim-style
+| enter | copy selected text
+|  | **Paste workflow** 
+| ctrl + B  | Enter comman mode
+| ] | Paste text
