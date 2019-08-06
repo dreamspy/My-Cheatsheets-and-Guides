@@ -196,6 +196,7 @@ The next step to configure each package is to edit the `setup.py` and `CMakeList
 
 ## Folder structure within the EA1000 ROS Workspace
 Moves to Confluence https://dtequipment.atlassian.net/wiki/spaces/EA1/pages/3866629/EA1000+Code+Documentation
+
 ```
 ├── docs 
 ├── env.sh
@@ -229,5 +230,42 @@ Moves to Confluence https://dtequipment.atlassian.net/wiki/spaces/EA1/pages/3866
 ```
 
 
+```
 
+
+
+
+
+```
+
+# Notes from the **Programming Robots with ROS** book
+
+## Topics
+**Topics are a way for ROS nodes to send messages between them.** Things only get interesting when nodes communicate with each other, exchanging information and data. The most common way to do that is through topics. A topic is a name for a stream of messages with a defined type. For example, the data from a laser range-finder might be sent on a topic called scan, with a message type of LaserScan, while the data from a camera might be sent over a topic called image, with a message type of Image.
+
+Topics implement a publish/subscribe communication mechanism, one of the more common ways to exchange data in a distributed system. Before nodes start to trans‐ mit data over topics, they must first announce, or advertise, both the topic name and the types of messages that are going to be sent.
+
+### Latched topics
+We can talk about a special type of topics designed for nodes that publish data only infrequently, called latched topics. Regular topics are good for a stream of data like temperature, but latched topics send out data infrequently, but once you subscribe you get the last message.
+
+#### Difference:
+
+- Regular topics
+	- Once you subscribe you get the **next** message
+- Latched topics
+	- Once you subscribe you get the **last** message immediately
+
+## Services
+**Services are another way to pass data between nodes in ROS. Services are just syn‐ chronous remote procedure calls; they allow one node to call a function that executes in another node.** We define the inputs and outputs of this function similarly to the way we define new message types. The server (which provides the service) specifies a callback to deal with the service request, and advertises the service. The client (which calls the service) then accesses this service through a local proxy.
+
+Service calls are well suited to things that you only need to do occasionally and that take a bounded amount of time to complete. Common computations, which you might want to distribute to other computers, are a good example. Discrete actions that the robot might do, such as turning on a sensor or taking a high-resolution pic‐ ture with a camera, are also good candidates for a service-call implementation.
+
+
+
+## Misc
+... if a ROS graph starts looking like a star, where most nodes are streaming data to or from a central node, it is often worthwhile to re-assess the flow of data and separate functions into smaller pieces. The goal is to create small, manageable functional units, which ideally can be reused in other applications on other robots.
+
+Everything needs to have a name, but we sometime need many instances of a single node. ROS provides *namespaces* and *remapping*
+
+... roslaunch has many other important features, such as the ability to launch programs on other computers across the network via ssh, to automatically respawn nodes that crash, and so on
 
