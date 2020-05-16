@@ -24,7 +24,7 @@ sudo apt-get install gnome-sushi
 For setting
 - CAPS as ESC
 - Double SHIFT as CAPS
-- ~~CAPS + HJKL & UIOP as universal VIM keys~~ (this doesn't work with is keybaard)
+- ~~CAPS + HJKL & UIOP as universal VIM keys~~ (this doesn't work with is keyboard)
   
 Add this to `.zshrc`:
 ```
@@ -52,13 +52,7 @@ setxkbmap -option caps:escape
 ## Install code
 Follow directions at https://snapcraft.io/code
 
-To allow Caps to be used as escape, add this to `$HOME/.config/Code/User/settings.json`:
-
-```
-{
-    "keyboard.dispatch": "keyCode"
-}
-```
+To allow `caps` to be used as `esc` go to `settings` > `dispatc`, and set it to `keyCode`.
 
 ---
 # Terminal setup
