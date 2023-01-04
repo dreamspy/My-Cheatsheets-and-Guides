@@ -31,7 +31,7 @@ Install zsh
 	
 install oh my zsh
 
-	sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+	sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 
 Change theme to agnoster and add zsh plugins
 
@@ -41,15 +41,14 @@ Install brew packages
 
 Add to .zshrc:
 
-	# autojump
-	[ -f /usr/local/etc/profile.d/autojump.sh ] && . /usr/local/etc/profile.d/autojump.sh 
+	plugins = (....., autojump)
 	
 Install zsh-autosuggestions
-
+	
 	git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
 
 Add plugin "zsh-auosuggestions" to .zshrc
-
+	
 Install zsh-syntax-highlighting
 
 	git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
@@ -83,7 +82,16 @@ Install patched fonts from here
 
 Set fonts in iTerm2 and Terminal	
 
-#### Fix vi-mode prompt
+#### Install ZVH (zsh-vi-mode)
+Clone `zsh-vi-mode` into your custom plugins repo:
+
+	git clone https://github.com/jeffreytse/zsh-vi-mode \
+	$ZSH_CUSTOM/plugins/zsh-vi-mode
+
+Then load as a plugin in your `.zshrc`
+
+	plugins+=(zsh-vi-mode)
+
 Create the file `~/.oh-my-zsh/custom/prompt/viModeCursor.sh` with these contents
 
 ```
