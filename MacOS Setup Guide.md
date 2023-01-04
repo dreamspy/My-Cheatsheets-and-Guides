@@ -19,7 +19,7 @@ Install homebrew
 	
 Install some essential programs using brew cask:
 
-	brew cask install iTerm2 Sublime-text etc..
+	brew install --cask iTerm2 Sublime-text etc..
 
 ### iTerm2
 Download settings and color profiles from [here](https://github.com/dreamspy/Cheatsheets-and-Guides/tree/master/Settings%20Backup/iTerm2). Double click color profiles to install, and copy ```com.googlecode.iterm2.plst``` to ```~/Library/Preferences```.
