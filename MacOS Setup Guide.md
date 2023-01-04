@@ -14,8 +14,8 @@ Installed on Drungi MacOS 10.13.16 in august 2018
 
 ### Homebrew
 Install homebrew
-	
-	/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+
+	/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 	
 Install some essential programs using brew cask:
 
